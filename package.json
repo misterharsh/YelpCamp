@@ -1,0 +1,17 @@
+{
+  "name": "yelp_camp",
+  "version": "1.0.0",
+  "description": "Section 28, Lecture 287 is the start of the YelpCamp project for the Web Developer Bootcamp course.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harsh Modhera",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.15"
+  }
+}
