@@ -1,9 +1,13 @@
 var express     = require("express"),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
-    Campground  = require("./models/campground");
+    Campground  = require("./models/campground"),
+    seedDB      = require("./seeds");
 
 var app = express();
+
+// Clear database
+seedDB();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -49,7 +53,7 @@ app.get("/campgrounds/new", function(req, res) {
 });
 
 app.get("/campgrounds/:id", function(req, res) {
-    Campground.findById(req.params.id, function(err, foundCampground) {
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground) {
         if(err) {
             console.log(err);
         } else {
