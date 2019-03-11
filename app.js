@@ -10,8 +10,11 @@ var app = express();
 // Clear database
 seedDB();
 
+// Needed to work json data
 app.use(bodyParser.urlencoded({extended: true}));
+// __dirname is a safe way to always have correct path access to public
 app.use(express.static(__dirname + "/public"));
+// Allows you to not have to append .ejs when referring to the files
 app.set("view engine", "ejs");
 
 // Connect to database: yelp_camp
